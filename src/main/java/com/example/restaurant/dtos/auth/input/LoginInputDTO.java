@@ -1,4 +1,4 @@
-package com.example.restaurant.dtos.user.input;
+package com.example.restaurant.dtos.auth.input;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginRequestDTO {
+public class LoginInputDTO {
     @Email
     @Schema(example = "example@gmail.com", requiredMode = Schema.RequiredMode.REQUIRED)
     private String email;

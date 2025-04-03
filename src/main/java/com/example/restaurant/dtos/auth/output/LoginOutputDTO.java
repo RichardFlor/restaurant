@@ -1,4 +1,4 @@
-package com.example.restaurant.dtos.user.output;
+package com.example.restaurant.dtos.auth.output;
 
 public record LoginOutputDTO(String token) {
 }

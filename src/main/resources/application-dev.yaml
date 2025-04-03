@@ -1,0 +1,10 @@
+server:
+  port:
+    ${PORT:8080}
+default-project:
+  images-public-base-folder: ${IMAGES_SRC:storage/public}
+  base-url: ${BASE_URL:http://localhost:8080/api/v1}
+  jwt:
+    secret: ${JWT_SECRET:defaultProject2024}
+    expiration: ${JWT_EXPIRATION:3000}
+    issuer: ${JWT_ISSUER:Default Project API}

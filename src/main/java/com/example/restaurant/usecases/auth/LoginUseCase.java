@@ -1,7 +1,6 @@
-package com.example.restaurant.usecases;
-
-import com.example.restaurant.dtos.user.input.LoginInputDTO;
-import com.example.restaurant.dtos.user.output.LoginOutputDTO;
+package com.example.restaurant.usecases.auth;
+import com.example.restaurant.dtos.auth.input.LoginInputDTO;
+import com.example.restaurant.dtos.auth.output.LoginOutputDTO;
 import com.example.restaurant.security.dto.UserDetailsDTO;
 import com.example.restaurant.security.services.JwtTokenService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +20,7 @@ public class LoginUseCase {
 
         var userDetails = (UserDetailsDTO) auth.getPrincipal();
 
-        var token = this.jwtTokenService.generateToken(userDetails.getUser());
+        var token = this.jwtTokenService.generateToken(userDetails);
 
         return new LoginOutputDTO(token);
     }

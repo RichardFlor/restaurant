@@ -4,7 +4,11 @@ import com.example.restaurant.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "users")
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Entity
+@Table(name = "users")
 @Getter
 @Setter
 @With
@@ -12,9 +16,9 @@ import lombok.*;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", columnDefinition = "uuid", updatable = false, nullable = false)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", length = 36, updatable = false, nullable = false, unique = true)
+    private UUID id;
 
     @Column(nullable = false)
     private String name;
@@ -27,4 +31,6 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    private String passwordRecoveryCode;
 }

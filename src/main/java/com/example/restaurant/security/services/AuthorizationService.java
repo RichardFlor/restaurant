@@ -1,7 +1,7 @@
 package com.example.restaurant.security.services;
 
 import com.example.restaurant.entities.user.User;
-import com.example.restaurant.repositories.UserRepository;
+import com.example.restaurant.repositories.UserJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @Component
 public class AuthorizationService implements UserDetailsService {
     @Autowired
-    private UserRepository repository;
+    private UserJpaRepository repository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = this.repository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));

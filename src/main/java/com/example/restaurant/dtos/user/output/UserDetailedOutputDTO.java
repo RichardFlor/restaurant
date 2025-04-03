@@ -5,16 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
 public class UserDetailedOutputDTO {
-    private Long id;
+    private UUID id;
 
     @Schema(example = "Jorge")
     private String name;
 
     @Schema(example = "jorge@gmail")
     private String email;
-
 }
